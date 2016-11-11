@@ -5,15 +5,15 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    private void Test
-
-    {
-        int i = 1 + 1;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    private void Test() {
+        int i = 1 + 1;
+        int x = 2 + 2;
+        int z = x + i;
     }
 }
