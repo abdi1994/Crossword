@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "765850014202",
+    "firebase_url": "https://crossword-7b62d.firebaseio.com",
+    "project_id": "crossword-7b62d",
+    "storage_bucket": "crossword-7b62d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765850014202:android:f37b52e0c415650a",
+        "android_client_info": {
+          "package_name": "com.example.abdi.crossword"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765850014202-ib24t3ji00pdcbfkmqv31783g697tke6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcz07fBid2W--WlZO-qGkEEzDd4ioVkeQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
