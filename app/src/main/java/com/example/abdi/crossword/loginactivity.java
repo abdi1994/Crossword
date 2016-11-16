@@ -83,7 +83,7 @@ public class loginactivity extends AppCompatActivity implements View.OnClickList
         //if the email and password are not empty
         //displaying a progress dialog
 
-        progressDialog.setMessage("Registering Please Wait...");
+        progressDialog.setMessage("Attempting Login Please Wait...");
         progressDialog.show();
 
         //logging in the user
