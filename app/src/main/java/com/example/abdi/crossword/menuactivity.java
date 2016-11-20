@@ -1,5 +1,6 @@
 package com.example.abdi.crossword;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,10 +9,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class menuactivity extends AppCompatActivity implements View.OnClickListener {
+    //buttons
+    Button btnNewCrossword;
+
+    //database
+    DatabaseHelper myDb;
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
@@ -25,6 +33,11 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainmenu);
+
+        myDb = new DatabaseHelper(this);
+
+        // button created
+        btnNewCrossword = (Button) findViewById(R.id.buttonNewCrossword);
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -50,6 +63,9 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
         //adding listener to button
         buttonLogout.setOnClickListener(this);
+
+        //Adding button functionality
+        NewCrossword();
     }
 
     @Override
@@ -64,4 +80,22 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, loginactivity.class));
         }
     }
+
+    public void NewCrossword() {
+    btnNewCrossword.setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    boolean isInserted = myDb.insertData();
+                    if (isInserted == true)
+                        Toast.makeText(menuactivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(menuactivity.this, newcrosswordactivity.class);
+                    startActivity(intent);
+                }
+            }
+    );
+
+
+    }
+
 }
