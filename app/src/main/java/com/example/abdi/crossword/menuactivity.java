@@ -1,6 +1,7 @@
 package com.example.abdi.crossword;
 
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -35,6 +36,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.mainmenu);
 
         myDb = new DatabaseHelper(this);
+
 
         // button created
         btnNewCrossword = (Button) findViewById(R.id.buttonNewCrossword);
@@ -86,8 +88,10 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
             new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    myDb.deleteAllData();
                     boolean isInserted = myDb.insertData();
                     if (isInserted == true)
+
                         Toast.makeText(menuactivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(menuactivity.this, newcrosswordactivity.class);
                     startActivity(intent);
@@ -97,5 +101,9 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
+
+
+
 
 }
