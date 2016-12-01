@@ -9,12 +9,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 
 public class newcrosswordactivity extends ActionBarActivity {
     DatabaseHelper myDb;
+    DatabaseHelper myDB;
     Button btnviewAll;
+    ListView listView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,10 @@ public class newcrosswordactivity extends ActionBarActivity {
         btnviewAll = (Button)findViewById(R.id.button_viewAll);
 
         viewAll();
+
+        // Get ListView object from xml
+        listView = (ListView) findViewById(R.id.list);
+        
 
     }
 
