@@ -21,6 +21,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
     //database
     DatabaseHelper myDb;
+    DatabaseHelper myDB;
 
     //firebase auth object
     private FirebaseAuth firebaseAuth;
