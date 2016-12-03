@@ -1,9 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent"
+>
+    <LinearLayout
+        android:id="@+id/linearlayoutnewcrossword"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="top">
+
 
     <FrameLayout
         android:id="@+id/gameframe"
@@ -16,42 +22,48 @@
         >
 
     </FrameLayout>
+    </LinearLayout>
+
 
     <LinearLayout
-        android:layout_centerVertical="true"
-        android:layout_width="match_parent"
+        android:id="@+id/layout2"
+        android:layout_alignBottom="@id/linearlayoutnewcrossword"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="bottom">
+        android:gravity="bottom"
+         >
 
         <EditText
             android:id="@+id/et_simple"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent">
+            android:layout_width="match_parent"
+            android:maxLines="1">
         </EditText>
 
         <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
 
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View All"
-        android:id="@+id/button_viewAll"
-        android:layout_centerHorizontal="true" />
-
         <Button
+            android:id="@+id/button_viewAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:layout_weight="1"
+            android:text="View All">
+        </Button>
+        <Button
             android:id="@+id/button_Save"
-             />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save">
+        </Button>
 
 
 
