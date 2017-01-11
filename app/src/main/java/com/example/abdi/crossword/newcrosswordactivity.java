@@ -28,8 +28,11 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static com.example.abdi.crossword.R.id.spinner1;
 
@@ -47,6 +50,7 @@ public class newcrosswordactivity extends ActionBarActivity {
     public static final String TEXTFILE = "Crossword.txt";
     public static final String DEBUGTAG = "AM";
     public static final String SAVED = "FileSaved";
+    private ItemArrayAdapter itemArrayAdapter;
 
 
     @Override
@@ -85,11 +89,15 @@ public class newcrosswordactivity extends ActionBarActivity {
 
         viewAll();
 
+        InputStream inputStream = getResources().openRawResource(R.raw.hint);
+        CSVReader csv = new CSVReader(inputStream);
+        List<String[]> hintList = csv.read();
+
         Spinner dropdown = (Spinner)findViewById(spinner1);
         String[] items = new String[]{"1", "2", "three"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        String[] testing = convert(hintList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, testing);
         dropdown.setAdapter(adapter);
-
 
 
 
@@ -227,6 +235,14 @@ public class newcrosswordactivity extends ActionBarActivity {
         savedInstanceState.putString(STATE_USER, mUser);
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
+    }
+
+    static String[] convert(List<String[]> from) {
+        ArrayList<String> list = new ArrayList<String>();
+        for (String[] strings : from) {
+            Collections.addAll(list, strings);
+        }
+        return list.toArray(new String[list.size()]);
     }
 
 

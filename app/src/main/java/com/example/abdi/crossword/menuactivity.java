@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class menuactivity extends AppCompatActivity implements View.OnClickListener {
     //buttons
     Button btnNewCrossword;
+    Button btnLoadCrossword;
 
     //database
     DatabaseHelper myDb;
@@ -41,6 +42,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
         // button created
         btnNewCrossword = (Button) findViewById(R.id.buttonNewCrossword);
+        //btnLoadCrossword
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -102,6 +104,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
 
 
 

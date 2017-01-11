@@ -16,6 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static android.R.attr.password;
+
 public class loginactivity extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -102,15 +107,45 @@ public class loginactivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    @Override
-    public void onClick(View view) {
-        if(view == buttonSignIn){
-            userLogin();
-        }
 
-        if(view == textViewSignup){
+    @Override
+    public void onClick(View v) {
+        if(v == textViewSignup){
             finish();
             startActivity(new Intent(this, signupactivity.class));
         }
+        if(!validateEmail(editTextEmail.getText().toString())) {
+            editTextEmail.setError("Invalid Email");
+            editTextEmail.requestFocus();
+        } else if (!validatePassword(editTextPassword.getText().toString())) {
+            editTextPassword.setError("Invalid Password");
+            editTextPassword.requestFocus();
+        } else {
+            Toast.makeText(loginactivity.this, "Input Validation Success", Toast.LENGTH_LONG).show();
+            userLogin();
+        }
+
     }
+
+
+    //Return true if password is valid and false if password is invalid
+    protected boolean validatePassword(String password) {
+        if(password!=null && password.length()>9) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //Return true if email is valid and false if email is invalid
+    protected boolean validateEmail(String email) {
+        String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+
+        return matcher.matches();
+    }
+
 }
