@@ -6,7 +6,7 @@ package com.example.abdi.crossword;
 
 public class GridEngine {
 
-    private final static int GRID_NUMBER = 13;
+    private final static int GRID_NUMBER = 9;
     private float gridSize;
 
 
