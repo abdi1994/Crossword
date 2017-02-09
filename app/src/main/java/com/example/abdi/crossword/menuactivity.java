@@ -43,6 +43,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
         // button created
         btnNewCrossword = (Button) findViewById(R.id.buttonNewCrossword);
         //btnLoadCrossword
+        btnLoadCrossword = (Button) findViewById(R.id.buttonLoadCrossword);
 
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
@@ -71,6 +72,7 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
 
         //Adding button functionality
         NewCrossword();
+        LoadCrossword();
     }
 
     @Override
@@ -91,16 +93,25 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
             new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    myDb.deleteAllData();
-                    boolean isInserted = myDb.insertData();
-                    if (isInserted == true)
-
-                        Toast.makeText(menuactivity.this,"Data Inserted",Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(menuactivity.this, newcrosswordactivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(menuactivity.this, GameActivity.class));
                 }
             }
     );
+
+
+    }
+
+    public void LoadCrossword() {
+        btnLoadCrossword.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent load = new Intent(menuactivity.this, GameActivity.class);
+                        load.putExtra("load", true);
+                        startActivity(load);
+                    }
+                }
+        );
 
 
     }

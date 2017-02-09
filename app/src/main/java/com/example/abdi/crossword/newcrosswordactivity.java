@@ -146,7 +146,7 @@ public class newcrosswordactivity extends ActionBarActivity {
                 String text = editText.getText().toString();
 
                 try {
-                    Toast.makeText(newcrosswordactivity.this, "Note Saved", Toast.LENGTH_LONG).show();
+                    Toast.makeText(newcrosswordactivity.this, "Saved", Toast.LENGTH_LONG).show();
                     FileOutputStream fos = openFileOutput(TEXTFILE, Context.MODE_PRIVATE);
                     fos.write(text.getBytes());
                     fos.close();
