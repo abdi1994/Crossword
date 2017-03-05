@@ -91,14 +91,14 @@ public class menuactivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void NewCrossword() {
-    btnNewCrossword.setOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(menuactivity.this, GameActivity.class));
+        btnNewCrossword.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(menuactivity.this, GameActivity.class));
+                    }
                 }
-            }
-    );
+        );
 
 
     }
